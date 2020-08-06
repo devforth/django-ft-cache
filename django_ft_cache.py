@@ -33,7 +33,7 @@ class FaultTolerantCacheMixin(object):
         # existing Django code
         client = self._lib.Client(self._servers)
         if self._options:
-            client.behaviors = self._options
+            client._options = self._options
         # overrides
         for name in self.methods_to_patch:
                 method = fault_tolerant_wrapper(getattr(client, name))
